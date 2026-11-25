@@ -1,0 +1,1 @@
+Coloca aqui tu cancion como cancion.mp3 (o cambia el nombre en src/config/invitation.js)

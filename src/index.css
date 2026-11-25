@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+/* ───────────── Tema: cambia colores y tipografías aquí ───────────── */
+@theme {
+  --font-display: "Almendra Display", "Georgia", serif;
+  --font-title: "Almendra", "Georgia", serif;
+  --font-body: "Special Elite", "Courier New", monospace;
+
+  --color-paper: #f3e7cf;
+  --color-paper-light: #f8f0df;
+  --color-ink: #2b1d17;
+  --color-wine: #b3121f;
+  --color-wine-dark: #7d0b14;
+  --color-night: #15171a;
+  --color-teal-deep: #1f4b53;
+}
+
+/* ───────────── Fondos con patrón (archivos en src/assets/patterns) ───────────── */
+.bg-harlequin {
+  background-image: url("./assets/patterns/harlequin.svg");
+  background-size: 96px 96px;
+}
+.bg-parchment {
+  background-color: var(--color-paper);
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgb(255 255 255 / 0.5), transparent 55%),
+    radial-gradient(ellipse at 90% 90%, rgb(120 80 40 / 0.18), transparent 60%);
+}
+
+/* Borde roto (papel rasgado) para separar secciones */
+.torn-bottom {
+  clip-path: polygon(
+    0 0, 100% 0, 100% 88%, 95% 94%, 90% 86%, 84% 96%, 78% 88%, 72% 95%, 66% 87%,
+    60% 97%, 54% 89%, 48% 95%, 42% 86%, 36% 96%, 30% 88%, 24% 95%, 18% 87%, 12% 96%, 6% 89%, 0 94%
+  );
+}
+
+html {
+  background: var(--color-night);
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Contorno oscuro para títulos grandes sobre fondos estampados */
+.title-outline {
+  paint-order: stroke fill;
+  -webkit-text-stroke: 6px #1a1a1a;
+  text-shadow: 0 6px 0 rgb(0 0 0 / 0.35);
+}
+
+/* ───────────── Animaciones al deslizar ───────────── */
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.9s ease var(--d, 0ms),
+    transform 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) var(--d, 0ms);
+  will-change: transform, opacity;
+}
+.reveal-up    { transform: translateY(2.5rem); }
+.reveal-down  { transform: translateY(-4rem) rotate(-3deg); }
+.reveal-left  { transform: translateX(-4rem) rotate(-6deg); }
+.reveal-right { transform: translateX(4rem) rotate(6deg); }
+.reveal-zoom  { transform: scale(0.55) rotate(-10deg); }
+.reveal-spin  { transform: rotate(-200deg) scale(0.4); }
+.reveal-flip  { transform: perspective(700px) rotateX(-75deg); transform-origin: top center; }
+.reveal[data-in="true"] { opacity: 1; transform: none; }
+
+/* Letras que caen una a una */
+.letter {
+  opacity: 0;
+  transform: translateY(-130%) rotate(-14deg) scale(0.6);
+  transition:
+    opacity 0.5s ease var(--d, 0ms),
+    transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) var(--d, 0ms);
+}
+.letter[data-in="true"] { opacity: 1; transform: none; }
+
+/* Iconos de línea que se dibujan */
+.draw svg * {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  transition: stroke-dashoffset 2.2s ease var(--d, 0ms);
+}
+.draw[data-in="true"] svg * { stroke-dashoffset: 0; }
+
+/* Movimientos continuos y suaves */
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-7px) rotate(1.5deg); }
+}
+.float-soft { animation: float-soft 5s ease-in-out infinite; }
+
+@keyframes pulse-ring {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.06); }
+}
+.pulse-soft { animation: pulse-ring 2.4s ease-in-out infinite; }
+
+@keyframes beat {
+  0%, 40%, 100% { transform: scale(1); }
+  20%           { transform: scale(1.25); }
+  30%           { transform: scale(1.1); }
+}
+.beat { animation: beat 1.8s ease-in-out 2s infinite; }
+
+@keyframes wiggle {
+  0%, 70%, 100% { transform: rotate(0deg); }
+  75% { transform: rotate(-8deg); }
+  80% { transform: rotate(7deg); }
+  85% { transform: rotate(-5deg); }
+  90% { transform: rotate(3deg); }
+}
+.wiggle { animation: wiggle 3.5s ease-in-out 1.8s infinite; }
+
+/* Cada vez que cambia un número de la cuenta regresiva */
+@keyframes tick {
+  from { transform: translateY(-45%); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+.tick { display: inline-block; animation: tick 0.45s ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; scroll-snap-type: none; }
+  .reveal, .letter { opacity: 1; transform: none !important; transition: none; }
+  .draw svg * { stroke-dashoffset: 0; transition: none; }
+  .float-soft, .pulse-soft, .beat, .wiggle, .tick { animation: none; }
+}

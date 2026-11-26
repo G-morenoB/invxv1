@@ -93,8 +93,8 @@ export const invitation = {
   images: {
     // Portada
     coverTopLeft: "", // reloj de bolsillo
-    coverTopRight: "", // cartas
-    coverBottomLeft: "", // naipes / sombrero
+    coverTopRight: "/images/carta.jpe", // cartas
+    coverBottomLeft: "/images/naipe.png", // naipes / sombrero
     coverBottomRight: "", // frasco azul / taza
     // Intro
     introTopLeft: "", // cartas y rosa

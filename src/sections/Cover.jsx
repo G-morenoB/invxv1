@@ -13,11 +13,7 @@ export default function Cover() {
 
   return (
     <Section id="portada">
-      <Backdrop
-        slot="cover"
-        fallback="bg-wine-dark"
-        overlay="bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.6),rgba(0,0,0,0.1)_75%)]"
-      />
+      <Backdrop slot="cover" fallback="bg-wine-dark" />
 
       <ImageSlot slot="coverTopLeft" label="Reloj de bolsillo" variant="left" delay={900} className="absolute -left-4 -top-2 h-36 w-36" />
       <ImageSlot slot="coverTopRight" label="Cartas" variant="right" delay={1050} className="absolute -right-3 top-6 h-32 w-28" />

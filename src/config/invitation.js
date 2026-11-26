@@ -50,7 +50,13 @@ export const invitation = {
     mapUrl: "https://maps.google.com",
   },
 
-  dressCode: { title: "Código de vestimenta", code: "Formal" },
+  gallery: {
+    title: "Galería",
+    // Rutas de tus fotos (guárdalas en /public/gallery/). Agrega o quita las que quieras.
+    // Mientras estén vacías se ven recuadros punteados.
+    photos: ["", "", "", "", ""],
+    autoplayMs: 4500, // tiempo entre fotos; 0 = sin avance automático
+  },
 
   gift: {
     title: "Sugerencia de regalo",
@@ -74,7 +80,7 @@ export const invitation = {
     cover: "/backgrounds/portada.jpg",
     countdown: "/backgrounds/cuenta-regresiva.jpg",
     gift: "/backgrounds/regalo.jpg",
-    dressCode: "/backgrounds/vestimenta.jpg",
+    gallery: "/backgrounds/galeria.jpg",
     parents: "/backgrounds/padres.jpg",
   },
 
@@ -103,9 +109,6 @@ export const invitation = {
     // Eventos
     ceremonyImage: "", // libros, taza, reloj
     receptionImage: "", // sombrero con naipes
-    // Código de vestimenta
-    dressAlice: "", // Alicia
-    dressTopRight: "", // rama / árbol
     // Regalo
     giftRabbit: "", // conejo con trompeta
     giftBag: "", // bolsas de regalo

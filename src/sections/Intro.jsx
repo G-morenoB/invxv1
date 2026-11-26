@@ -9,7 +9,6 @@ export default function Intro({ onOpen }) {
 
   return (
     <Section id="intro" className="bg-parchment">
-      <Reveal variant="down" className="absolute inset-x-0 top-0 h-20 bg-harlequin opacity-90" />
       <ImageSlot slot="introTopLeft" label="Cartas y rosa" variant="left" delay={600} className="absolute -left-3 top-12 h-28 w-28" />
       <ImageSlot slot="introMiddleLeft" label="Sombrero" variant="left" delay={800} className="absolute -left-4 top-[55%] h-36 w-28" />
       <ImageSlot slot="introRight" label="Rosas" variant="right" delay={700} className="absolute -right-4 top-[30%] h-32 w-24" />

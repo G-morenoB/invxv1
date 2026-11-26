@@ -1,0 +1,1 @@
+Coloca aqui tus fotos de la galeria y escribe sus rutas en src/config/invitation.js (gallery.photos)

@@ -7,7 +7,7 @@ import SaveTheDate from "./sections/SaveTheDate";
 import Countdown from "./sections/Countdown";
 import Ceremony from "./sections/Ceremony";
 import Reception from "./sections/Reception";
-import DressCode from "./sections/DressCode";
+import Gallery from "./sections/Gallery";
 import Gift from "./sections/Gift";
 import Parents from "./sections/Parents";
 
@@ -31,7 +31,7 @@ export default function App() {
         <Countdown />
         <Ceremony />
         <Reception />
-        <DressCode />
+        <Gallery />
         <Gift />
         <Parents />
       </main>

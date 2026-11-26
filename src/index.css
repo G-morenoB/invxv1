@@ -16,23 +16,14 @@
 }
 
 /* ───────────── Fondos con patrón (archivos en src/assets/patterns) ───────────── */
-.bg-harlequin {
-  background-image: url("./assets/patterns/harlequin.svg");
-  background-size: 96px 96px;
-}
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
 .bg-parchment {
   background-color: var(--color-paper);
   background-image:
     radial-gradient(ellipse at 20% 10%, rgb(255 255 255 / 0.5), transparent 55%),
     radial-gradient(ellipse at 90% 90%, rgb(120 80 40 / 0.18), transparent 60%);
-}
-
-/* Borde roto (papel rasgado) para separar secciones */
-.torn-bottom {
-  clip-path: polygon(
-    0 0, 100% 0, 100% 88%, 95% 94%, 90% 86%, 84% 96%, 78% 88%, 72% 95%, 66% 87%,
-    60% 97%, 54% 89%, 48% 95%, 42% 86%, 36% 96%, 30% 88%, 24% 95%, 18% 87%, 12% 96%, 6% 89%, 0 94%
-  );
 }
 
 html {
@@ -81,14 +72,6 @@ body {
 }
 .letter[data-in="true"] { opacity: 1; transform: none; }
 
-/* Iconos de línea que se dibujan */
-.draw svg * {
-  stroke-dasharray: 600;
-  stroke-dashoffset: 600;
-  transition: stroke-dashoffset 2.2s ease var(--d, 0ms);
-}
-.draw[data-in="true"] svg * { stroke-dashoffset: 0; }
-
 /* Movimientos continuos y suaves */
 @keyframes float-soft {
   0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -128,6 +111,5 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; scroll-snap-type: none; }
   .reveal, .letter { opacity: 1; transform: none !important; transition: none; }
-  .draw svg * { stroke-dashoffset: 0; transition: none; }
   .float-soft, .pulse-soft, .beat, .wiggle, .tick { animation: none; }
 }
